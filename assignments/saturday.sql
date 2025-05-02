@@ -188,3 +188,15 @@ UPDATE course_info SET course_name = 'Intro to Programming' WHERE fee NOT BETWEE
 
 UPDATE exam_results SET marks_obtained = 95 WHERE exam_date BETWEEN '2024-04-10' AND '2024-04-20';
 
+
+
+
+select count(*) from student_info;
+
+select sum(fee) as total_sum from course_info;
+
+select first_name,max(age) as max_age from student_info;
+
+select last_name,min(age) as min_age from student_info;
+
+select avg(marks_obtained) as avg_marks from exam_results;
