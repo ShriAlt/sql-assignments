@@ -198,5 +198,9 @@ select sum(fee) as total_sum from course_info;
 select first_name,max(age) as max_age from student_info;
 
 select last_name,min(age) as min_age from student_info;
-
+    
 select avg(marks_obtained) as avg_marks from exam_results;
+select avg(marks_obtained) as avg_marks from exam_results;
+
+
+select department, course_name from course_info group by department having department='Design';
