@@ -1,5 +1,4 @@
 
--- Customer Table
 CREATE TABLE Customer (
     customer_id INT,
     first_name VARCHAR(50),
@@ -14,7 +13,6 @@ CREATE TABLE Customer (
     CONSTRAINT pk_customer PRIMARY KEY (customer_id)
 );
 
--- Orders Table
 CREATE TABLE Orders (
     order_id INT,
     customer_id INT,
@@ -30,7 +28,6 @@ CREATE TABLE Orders (
     CONSTRAINT fk_orders_customer FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
 );
 
--- OrderItems Table
 CREATE TABLE OrderItems (
     item_id INT,
     order_id INT,
@@ -47,7 +44,6 @@ CREATE TABLE OrderItems (
     CONSTRAINT fk_order_items_customer FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
 );
 
--- Products Table
 CREATE TABLE Products (
     product_id INT,
     item_id INT,
@@ -65,7 +61,6 @@ CREATE TABLE Products (
     CONSTRAINT fk_products_customer FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
 );
 
--- Suppliers Table
 CREATE TABLE Suppliers (
     supplier_id INT,
     product_id INT,
@@ -84,10 +79,6 @@ CREATE TABLE Suppliers (
     CONSTRAINT fk_suppliers_customer FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
 );
 
--- Sample Inserts
--- 30 entries per table should be added below this section as needed
-
--- Insert Statements
 INSERT INTO Customer VALUES (1, 'First1', 'Last1', 'customer1@example.com', '7384542721', 'Address 1', 'City1', 'State1', '56001', '2020-09-24');
 INSERT INTO Customer VALUES (2, 'First2', 'Last2', 'customer2@example.com', '8144971710', 'Address 2', 'City2', 'State2', '56002', '2020-12-31');
 INSERT INTO Customer VALUES (3, 'First3', 'Last3', 'customer3@example.com', '6656992325', 'Address 3', 'City3', 'State3', '56003', '2022-06-28');
@@ -118,6 +109,7 @@ INSERT INTO Customer VALUES (27, 'First27', 'Last27', 'customer27@example.com', 
 INSERT INTO Customer VALUES (28, 'First28', 'Last28', 'customer28@example.com', '7981228382', 'Address 28', 'City28', 'State28', '560028', '2020-10-23');
 INSERT INTO Customer VALUES (29, 'First29', 'Last29', 'customer29@example.com', '8364807569', 'Address 29', 'City29', 'State29', '560029', '2021-03-25');
 INSERT INTO Customer VALUES (30, 'First30', 'Last30', 'customer30@example.com', '8172687347', 'Address 30', 'City30', 'State30', '560030', '2020-12-15');
+
 INSERT INTO Orders VALUES (1, 23, '2021-03-18', 'Shipping Addr 1', 'ShipCity1', 'ShipState1', '56001', 912.67, 'Shipped', 'Credit Card');
 INSERT INTO Orders VALUES (2, 21, '2023-03-15', 'Shipping Addr 2', 'ShipCity2', 'ShipState2', '56002', 630.60, 'Shipped', 'Credit Card');
 INSERT INTO Orders VALUES (3, 14, '2022-08-01', 'Shipping Addr 3', 'ShipCity3', 'ShipState3', '56003', 839.41, 'Shipped', 'Credit Card');
@@ -148,6 +140,7 @@ INSERT INTO Orders VALUES (27, 6, '2021-02-10', 'Shipping Addr 27', 'ShipCity27'
 INSERT INTO Orders VALUES (28, 7, '2022-03-22', 'Shipping Addr 28', 'ShipCity28', 'ShipState28', '560028', 382.54, 'Shipped', 'Credit Card');
 INSERT INTO Orders VALUES (29, 4, '2023-06-04', 'Shipping Addr 29', 'ShipCity29', 'ShipState29', '560029', 581.88, 'Shipped', 'Credit Card');
 INSERT INTO Orders VALUES (30, 19, '2021-09-11', 'Shipping Addr 30', 'ShipCity30', 'ShipState30', '560030', 393.89, 'Shipped', 'Credit Card');
+
 INSERT INTO OrderItems VALUES (1, 9, 24, 1, 3, 14.27, 1.75, 4.11, 380.88, 'Note 1');
 INSERT INTO OrderItems VALUES (2, 8, 13, 2, 1, 98.95, 3.12, 7.38, 183.01, 'Note 2');
 INSERT INTO OrderItems VALUES (3, 6, 22, 3, 5, 87.60, 0.31, 2.29, 493.82, 'Note 3');
@@ -178,6 +171,7 @@ INSERT INTO OrderItems VALUES (27, 25, 6, 27, 5, 30.43, 1.93, 2.43, 400.57, 'Not
 INSERT INTO OrderItems VALUES (28, 18, 28, 28, 3, 54.64, 9.79, 8.36, 165.59, 'Note 28');
 INSERT INTO OrderItems VALUES (29, 1, 29, 29, 4, 96.52, 7.56, 2.42, 267.91, 'Note 29');
 INSERT INTO OrderItems VALUES (30, 10, 1, 30, 3, 21.02, 3.57, 6.99, 127.57, 'Note 30');
+
 INSERT INTO Products VALUES (1, 1, 19, 6, 'Product1', 'Desc1', 126.16, 15, 'Category1', 'SKU1');
 INSERT INTO Products VALUES (2, 2, 13, 3, 'Product2', 'Desc2', 59.22, 202, 'Category2', 'SKU2');
 INSERT INTO Products VALUES (3, 3, 14, 24, 'Product3', 'Desc3', 126.83, 101, 'Category3', 'SKU3');
@@ -208,6 +202,7 @@ INSERT INTO Products VALUES (27, 27, 16, 7, 'Product27', 'Desc27', 158.33, 271, 
 INSERT INTO Products VALUES (28, 28, 9, 24, 'Product28', 'Desc28', 96.09, 296, 'Category28', 'SKU28');
 INSERT INTO Products VALUES (29, 29, 9, 18, 'Product29', 'Desc29', 75.60, 243, 'Category29', 'SKU29');
 INSERT INTO Products VALUES (30, 30, 23, 12, 'Product30', 'Desc30', 119.31, 219, 'Category30', 'SKU30');
+
 INSERT INTO Suppliers VALUES (1, 1, 1, 13, 16, 'Supplier1', 'Contact1', 'supplier1@example.com', '7811228121', 'Supplier Address 1');
 INSERT INTO Suppliers VALUES (2, 2, 2, 14, 23, 'Supplier2', 'Contact2', 'supplier2@example.com', '8498536001', 'Supplier Address 2');
 INSERT INTO Suppliers VALUES (3, 3, 3, 19, 6, 'Supplier3', 'Contact3', 'supplier3@example.com', '7861086962', 'Supplier Address 3');
